@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home - Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Finance Summary</h1>
+
+  <div id="summary">
+    <p><strong>Total Income:</strong> $<span id="total-income">0</span></p>
+    <p><strong>Total Expenses:</strong> $<span id="total-expense">0</span></p>
+    <p><strong>Balance:</strong> $<span id="balance">0</span></p>
+  </div>
+
+  <h2>Transactions</h2>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Category</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="transaction-table">
+      <!-- transactions will be inserted here -->
+    </tbody>
+  </table>
+
+  <br>
+  <p>
+    <a href="add_transaction.html"> Add Transaction</a> |
+    <a href="settings.html"> Settings</a> |
+    <a href="index.html"> Log Out</a>
+  </p>
+
+  <script src="script.js"></script>
+</body>
+</html>
