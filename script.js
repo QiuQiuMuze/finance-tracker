@@ -80,3 +80,28 @@ if (transactionTable) {
   totalExpense.textContent = expenseSum.toFixed(2);
   balance.textContent = (incomeSum - expenseSum).toFixed(2);
 }
+
+
+function setFontSize(size) {
+    document.body.classList.remove("font-small", "font-medium", "font-large");
+    document.body.classList.add("font-" + size);
+
+    localStorage.setItem("fontSize", size);
+  }
+  
+  function toggleContrast() {
+    document.body.classList.toggle("high-contrast");
+  
+    const isHighContrast = document.body.classList.contains("high-contrast");
+    localStorage.setItem("contrast", isHighContrast ? "on" : "off");
+  }
+  
+  window.addEventListener("DOMContentLoaded", () => {
+    const fontSize = localStorage.getItem("fontSize") || "medium";
+    setFontSize(fontSize);
+  
+    if (localStorage.getItem("contrast") === "on") {
+      document.body.classList.add("high-contrast");
+    }
+  });
+  

@@ -1,0 +1,25 @@
+body {
+    font-size: 16px;
+  }
+  
+  body.font-small {
+    font-size: 14px;
+  }
+  
+  body.font-medium {
+    font-size: 16px;
+  }
+  
+  body.font-large {
+    font-size: 20px;
+  }
+  
+  body.high-contrast {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  body.high-contrast a {
+    color: #00ffff;
+  }
+  
