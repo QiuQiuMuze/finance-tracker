@@ -6,12 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const username = document.getElementById("username").value.trim();
         const password = document.getElementById("password").value.trim();
         const errorMessage = document.getElementById("error-message");
-        if (username === "testuser" && password === "password123") {
+        const stored = JSON.parse(localStorage.getItem("registeredUser"));
+        if (stored && username === stored.username && password === stored.password) {
           window.location.href = "home.html";
         } else {
           errorMessage.innerText = "Invalid username or password. Please try again.";
           errorMessage.style.display = "block";
-        }
+        }        
       });
     }
   
@@ -85,5 +86,28 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("contrast",
       document.body.classList.contains("high-contrast") ? "on" : "off"
     );
+  }
+  
+
+  const registerForm = document.getElementById("register-form");
+  if (registerForm) {
+    registerForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const username = document.getElementById("new-username").value.trim();
+      const password = document.getElementById("new-password").value.trim();
+      if (!username || !password) {
+        alert("Please enter both username and password.");
+        return;
+      }
+      localStorage.setItem("registeredUser", JSON.stringify({ username, password }));
+      document.getElementById("register-message").style.display = "block";
+    });
+  }
+  
+
+  function confirmCancel() {
+    if (confirm("Are you sure you want to cancel? Your input will be lost.")) {
+      window.location.href = "home.html";
+    }
   }
   

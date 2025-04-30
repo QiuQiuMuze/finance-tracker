@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <p class="sr-only">This form is compatible with screen readers and supports keyboard navigation.</p>
     <h1>Login</h1>
-    <form id="login-form">
+    <form id="login-form" aria-label="Login form for screen reader users">
         <label for="username">Username:</label>
         <input type="text" id="username" required><br><br>
 
@@ -17,6 +18,8 @@
         <button type="submit">Log In</button>
         <p id="error-message" class="error" style="display:none;"></p>
     </form>
+    <p>Here Register Freely <a href="register.html">Sign Up</a></p>
+
 
     <script src="script.js"></script>
 </body>
