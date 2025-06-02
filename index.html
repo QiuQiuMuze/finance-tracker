@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 简单隐藏逻辑 */
+    section { display: none; padding: 20px; }
+    section.active { display: block; }
+    /* 默认隐藏导航，登录成功后显示 */
+    nav { display: none; }
+    nav a { margin-right: 10px; cursor: pointer; color: blue; text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <h1>Finance Tracker</h1>
+
+  <!-- 导航 -->
+  <nav>
+    <a data-view="login">Login</a>
+    <a data-view="dashboard">Dashboard</a>
+    <a data-view="settings">Settings</a>
+  </nav>
+
+  <!-- 登录 & 注册 Section -->
+  <section id="login" class="active">
+    <h2>Login</h2>
+    <form id="login-form">
+      <label>Username: <input type="text" id="username" required></label><br><br>
+      <label>Password: <input type="password" id="password" required></label><br><br>
+      <button type="submit">Log In</button>
+      <p id="login-error" style="color:red; display:none;"></p>
+    </form>
+
+    <h2>Register</h2>
+    <form id="register-form">
+      <label>Username: <input type="text" id="reg-username" required></label><br><br>
+      <label>Password: <input type="password" id="reg-password" required></label><br><br>
+      <button type="submit">Register</button>
+      <p id="register-msg" style="color:green; display:none;"></p>
+      <p id="register-error" style="color:red; display:none;"></p>
+    </form>
+  </section>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard">
+    <!-- 预算和摘要 -->
+    <h2>Finance Summary</h2>
+    <div id="summary">
+      <p>Total Income: $<span id="total-income">0</span></p>
+      <p>Total Expenses: $<span id="total-expense">0</span></p>
+      <p>Balance: $<span id="balance">0</span></p>
+      <p>Budget Limit: $<span id="budget-limit">0</span></p>
+      <p id="over-budget-msg" style="color:red;" hidden>⚠️ Budget Exceeded!</p>
+    </div>
+
+    <!-- 设置预算 -->
+    <h3>Set Budget</h3>
+    <form id="budget-form">
+      <input type="number" id="budget-amount" placeholder="Enter budget" required>
+      <button type="submit">Set Budget</button>
+      <button id="budget-cancel">Cancel</button>
+      <span id="budget-msg" style="color:green; display:none;">✔ Budget updated</span>
+    </form>
+
+    <!-- 添加交易 -->
+    <h3>Add Transaction</h3>
+    <form id="transaction-form">
+      <input type="number" id="amount" placeholder="Amount" required>
+      <select id="type" required>
+        <option value="">--Select--</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <input type="text" id="category" placeholder="Category" required>
+      <input type="date" id="date" required>
+      <button type="submit">Submit</button>
+      <p id="transaction-message" style="color:green; display:none;">✔ Transaction added!</p>
+    </form>
+
+    <!-- 交易列表 -->
+    <h3>Transactions</h3>
+    <table border="1" cellpadding="5" cellspacing="0">
+      <thead>
+        <tr><th>Amount</th><th>Type</th><th>Category</th><th>Date</th></tr>
+      </thead>
+      <tbody id="transaction-table"></tbody>
+    </table>
+  </section>
+
+  <!-- Settings Section -->
+  <section id="settings">
+    <h2>Accessibility Settings</h2>
+    <div>
+      <label>Font Size:</label><br>
+      <button data-font="small">Small</button>
+      <button data-font="medium">Medium</button>
+      <button data-font="large">Large</button>
+    </div>
+    <br>
+    <div>
+      <label>Contrast Mode:</label><br>
+      <button id="toggle-contrast">Toggle High Contrast</button>
+    </div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

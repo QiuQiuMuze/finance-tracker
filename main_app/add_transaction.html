@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Transaction – Finance Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Add Transaction</h1>
+  <form id="transaction-form">
+    <label>Amount: <input type="number" id="amount" required></label><br><br>
+    <label>Type:
+      <select id="type" required>
+        <option value="">--Select--</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+    </label><br><br>
+    <label>Category: <input type="text" id="category" required></label><br><br>
+    <label>Date: <input type="date" id="date" required></label><br><br>
+    <button type="submit">Submit</button>
+    <button id="txn-cancel">Cancel</button>
+    <p id="transaction-message" class="success"></p>
+  </form>
+  <p><a href="home.html">← Back to Home</a></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
